@@ -1,0 +1,52 @@
+{% extends "kashi/base.html" %}
+{% load static %}
+
+{% block content %}
+    <section class="presentacion">
+        <div class="section-presentacion">
+            <figure class="img-none-1"><img src="{% static 'kashi/images/image.png' %}" alt="" width="100%"></figure> 
+            <div>
+                <h1>Movimiento Indigena Bolivariano del Municipio Lagunillas</h1>
+                <small>Venezuela, Estado Zulia</small>
+                <img src="{% static 'kashi/images/image.png' %}" alt="" class="img-none-2 width-100">
+                <ul>
+                    <li><a href="{% url 'registrarse' %}" class="subrayado a-pequeña">Registrate</a></li>                
+                    <li><a href="{% url 'iniciar_seccion' %}" class="a-pequeña">Incia seccion</a></li>      
+                </ul>
+            </div>     
+        </div>     
+    </section>
+
+    <section class="titulo-grande">
+            <h1 id="Home-titulo-grande">No soy solo un recuerdo, estoy en ti, en tus ojos me veo, yo naci en ti, en tus antepasados me tienes.  No me mires asi, no te quedes ahi, de que sirve si te quedas sentado sin hacer nada, no calles, no olvides tu historia, tu pasado es importante para que nunca mas vuelva a pasar, si tu te callas se perdera nuestra historia.     "Bartolina Sisa"</h1>                   
+    </section>
+
+    <p class="espacio-header"></p>
+
+
+    <section class="section-contenido" id="Mision-vision">
+        <blockquote class="Mision-home contenido">
+            <h2>Mision</h2>
+            <p>Proporcionar un medio donde todos los asentamientos indigenas del Municipio Lagunillas 
+            tengan la facilidad de conocerse, reunirse, comunicarse e interactuar 
+            entre y tambien con hermanos de cualquier parte del mundo. 
+            </p>
+        </blockquote>
+        <blockquote class="Mision-home contenido">
+            <h2>Vision</h2>
+            <p>Ser un espacio en el que las comunidades indigenas acudan para formar lazos, apoyarse entre si, transmitir sus ideas, 
+            opiniones y metas comunes  que ayuden a la organizacion y crecimiento de los 
+            pueblos indigenas.
+            </p>
+        </blockquote>
+        <blockquote class="Mision-home contenido"> 
+            <h2>Valores</h2>
+            <p><b>Colaboracion: </b>potenciar el apoyo colectivo. <br> <br>
+               <b>Pasión: </b>estar comprometidos con el corazón y con la razón. <br> <br>
+               <b>Diversidad e inclusión: </b>contar con un amplio abanico de culturas. <br> <br>
+               <b>Personas: </b>ser un buen lugar donde socializar, que las personas se sientan inspiradas para luchar por una causa.
+            </p>
+        </blockquote>
+    </section>
+    <p class="espacio-header"></p>
+{% endblock %}

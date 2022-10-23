@@ -1,0 +1,35 @@
+{% extends "kashi/base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+    <section class="section-contenido" id="Censo-indigena">  
+        <h1>REGISTRO DE INDIGENAS</h1>
+        <em class="Tex-align-center">Gracias, por tomarse el tiempo en responder estas preguntas</em>
+            <div  id="Formulario-censo-indigenas" class="box-shadow">
+                <form enctype="multipart/form-data" action="" method="POST">
+                    {% csrf_token %}
+                    <input type="date" name="fecha-nacimiento" required>
+                    {{form.as_table}}
+                <div class="centrado-wrap">
+                    <input type="submit" value="registrar" class="submit">
+                </div>
+                </form> 
+                <hr>
+                <h3 class="Tex-align-center">CENSADOS</h3>
+                {% for i in censados %}
+                <div class="derecha-wrap" id="Censados">
+                    <div>
+                        <p>{{i.cedula}} {{i.nombre}}</p>
+                    </div>
+                    <div class="centrado-wrap" id="Pareja-opciones-blog">
+                        <ul>
+                            <li><a class="submit submit-2" href="{% url 'editar_indigena' cedula=i.cedula %}" > <img src="{% static 'kashi/images/editar.png' %}" alt="" width="15" height="15"></a></li>
+                            <li><a class="submit submit-2" href="{% url 'borrar_indigena' cedula=i.cedula %}" ><img src="{% static 'kashi/images/papelera.png' %}" alt="" width="15" height="15"></a></li>
+                        </ul>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'kashi/base.html' %}
+{% load static %}
+
+{% block content %}
+    <section class="titulo-grande">
+            <h1 class="Tex-align-center">Tus Publicaciones</h1>                   
+    </section>
+    <p class="espacio-header"></p>
+    <p class="espacio-header"></p>
+    <section id="Contenido-borrar-editar">
+    {% for i in publicaciones %}
+    <section class="section-contenido" id="Caja-borrar-editar">
+        <div class="dos box-shadow" >
+            <img src="{{i.imagen.url}}" alt="" width="100%" height="100%">
+        </div>
+        <div class='contenido uno box-shadow'>
+            <div class="width-100">
+                <h2>{{i.titulo}}</h2>
+                <p>{{i.resumen}}</p> 
+            </div>
+            <div class="centrado-wrap" id="Pareja-opciones-blog">
+                <ul>
+                    <li><a class="submit submit-2" href="{% url 'editar_publicacion' pk=i.pk %}" > <img src="{% static 'kashi/images/editar.png' %}" alt="" width="15" height="15"> &nbsp; Editar</a></li>
+                    <li><a class="submit submit-2" href="{% url 'borrar_publicacion' pk=i.pk %}" ><img src="{% static 'kashi/images/papelera.png' %}" alt="" width="15" height="15"> &nbsp; Borrar</a></li>
+                </ul>                  
+            </div>
+        </div>
+    </section>
+    <p class="espacio-header"></p>
+    {% endfor %}
+</section>
+{% endblock %}

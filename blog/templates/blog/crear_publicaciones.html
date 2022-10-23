@@ -1,0 +1,24 @@
+{% extends "kashi/base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+
+<section class="section-contenido" id="Censo-indigena">  
+
+    <h1>Publicar</h1>                   
+
+    <div  id="Formulario-censo-indigenas" class="box-shadow">
+        <form enctype="multipart/form-data" action="" id="Formulario-crear-publicacion" method="POST">
+            {% csrf_token %}    
+
+                {{form.as_table}}
+
+        <div class="centrado-wrap">
+            <input type="submit" value="publicar" class="submit">
+        </div>
+        </form>
+    </div>
+
+    </section>
+{% endblock %}

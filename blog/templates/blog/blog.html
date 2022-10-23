@@ -1,0 +1,39 @@
+{% extends "kashi/base.html" %}
+{% load static %}
+
+{% block content %}
+<section class="section-contenido" id="Blog-contenido">
+
+    <section class="titulo-grande">
+            <h1 class="Tex-align-center">Publicaciones</h1>                   
+    </section>
+    
+    <p class="espacio-header"></p>
+    
+    <div class="centrado-wrap" id="Div-select-blog">
+        <h3>Por categorias: &nbsp;</h3> 
+            <select name="categorias" class="select" id="Select-blog">
+                <option><b>Seleciona una categoria: </b> </option>
+            {% for i in categorias %}
+                <option value="{% url 'categoria' i.id %}">{{i.nombre}}</option> 
+            {% endfor %}
+        </select>
+    </div>
+
+    {% for i in publicaciones %}
+        <div class="blog">
+            <a href="{% url 'publicacion' pk=i.pk %}">
+                <figure>
+                    <img src="{{i.imagen.url}}" alt="" width="250" height="150">
+                </figure>
+                <h6>{{i.titulo}}</h6>
+                <hr>
+                <p class="descripcion">Autor: {{i.autor}}</p>
+                <p id="Resumen-blog" >{{i.resumen}}</p>                
+            </a>
+        </div>
+    <p class="espacio-header"></p>        
+    {% endfor %}
+
+</section>
+{% endblock %}

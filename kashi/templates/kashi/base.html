@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es-UE">
+    <head>
+        <title>Home</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'kashi/css/style.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,600;0,800;0,900;1,400;1,800&display=swap" rel="stylesheet"> 
+    </head>
+    <body>
+        <header class="header width-100">
+            <div class="logo_nav_container">
+                <a href="" class="logo"><img src="{% static 'kashi/images/logo_miuven-removebg-preview.png' %}" alt="" width="70" height="63"></a>
+                <input type="checkbox" id="check">
+                <label for="check" class="checkbtn"><img src="{% static 'kashi/images/menu_hamburguesa.png' %}" alt="" width="35" height="35"></label>
+                <nav class="navigation">
+                    <ul class="lista-header">
+                        {% if user.is_authenticated %}
+                        <li><a class="{% if request.path == '/home_username/' %}active border-botton-red{% endif %}" href="{% url 'home_username' %}">Inicio</a></li>
+                        {% else %}
+                        <li><a class="{% if request.path == '/' %}active border-botton-red{% endif %}" href="{% url 'home' %}">Inicio</a></li>
+                        {% endif %}
+                        <li><a class="{% if request.path|slice:'6' == '/blog/' %}active border-botton-red{% endif %}" href="{% url 'blog' %}">Blog</a></li>
+                        <li><a class="{% if request.path == '/contacto/' %}active border-botton-red{% endif %}" href="{% url 'contacto' %}">Contacto</a></li>
+                        {% if user.is_authenticated %}
+                        <li><a class="{% if request.path == '/servicios/' %} active border-botton-red{% endif %}" href="{% url 'servicios' %}">Utilidad</a></li>
+                        <li><a href="{% url 'cerrar_seccion' %}">Salir <img src="{% static 'kashi/images/salir.png' %}" alt="" width="17" height="17"></a></li>
+                        {% else %}
+                        <li><a class="{% if request.path == '/autenticacion/iniciar_seccion/' %}active border-botton-red{% endif %}" href="{% url 'iniciar_seccion' %}">Iniciar Seccion</a></li>
+                        <li class="subrayado" ><a class="{% if request.path == '/autenticacion/registrarse/' %}active-subrayado{% endif %}" href="{% url 'registrarse' %}" >Registrarse</a></li>
+                        {% endif %}
+                    </ul>
+                </nav>        
+            </div>
+        </header> 
+        <p class="espacio-header"></p>
+        <p class="espacio-header"></p>
+        <!-- Contenido Cambiante -->
+        {% block content %}
+
+        {% endblock %}
+        <footer class="pie-pagina">
+            <div class="grupo1 columna">
+                <div class="box">
+                    <a href=""><figure><img src="{% static 'kashi/images/logo_miuven-removebg-preview.png' %}" alt="" width="100"></figure></a>
+                </div>
+                <div class="box">
+                    <h2>Sobre Nosotros</h2>
+                    <p>Somos un Movimiento Indigena Bolivariano Del Municipio Lagunillas</p>
+                </div>
+                <div class="box">
+                    <a href="{% url 'contacto' %}"><h3>Contactanos</h3></a>
+                </div>
+            </div>  
+            <div class="grupo2">
+                <small>&copy; 2022 <b>Sekiris Salazar Gonzalez</b> - Todos Los Derechos Reservados.</small>
+            </div>    
+        </footer>
+        <script src="{% static 'kashi/java_script/javascript.js' %}"></script>
+    </body>
+</html>

@@ -1,0 +1,22 @@
+{% extends "kashi/base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+    <section class="section-contenido">  
+        <form action="" method="POST" id="Formulario-iniciar-seccion" class="box-shadow"> 
+            {% csrf_token %}    
+
+        <img class="centrado-wrap" src="{% static 'kashi/images/logo_miuven-removebg-preview.png' %}" alt="" width="170">
+
+        <div id="Pareja-username-password">
+
+            {{form.as_table}}
+        </div>
+            
+        <div class="centrado-wrap">
+            <input type="submit" value="entrar" class="submit">
+        </div>
+        </form>
+    </section>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "kashi/base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+    <section class="section-contenido">  
+        <section class="titulo-grande">
+                <h1 class="Tex-align-center">Esperamos tu mensaje</h1>
+        </section>
+        <form action="" method="POST" id="form">
+            {% csrf_token %}
+            <div class="centrado-wrap" id="Div-nombre-email">
+                <div class="box-formulario">
+                    {% render_field formulario_contacto.nombre.label %}: &nbsp;
+                    {% render_field formulario_contacto.nombre placeholder="Escribe tu Nombre" class="cuadro-formulario " %}
+                </div>
+                <div class="box-formulario">
+                    {% render_field formulario_contacto.email.label %}:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    {% render_field formulario_contacto.email placeholder="Pon tu gmail" class="cuadro-formulario " %}
+                </div>
+            </div>
+            <div class="centrado-wrap">
+                    {%render_field formulario_contacto.mensaje.label%}: &nbsp;
+                    {% render_field formulario_contacto.mensaje placeholder="Explayate" class="cuadro-formulario cuadro-contenido width-100"%}                        
+            </div>  
+
+            <div class="centrado-wrap">
+                <input type="submit" value="enviar" class="submit">
+            </div>
+        </form>
+    </section>
+{% endblock %}

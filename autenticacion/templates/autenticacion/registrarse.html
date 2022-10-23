@@ -1,0 +1,21 @@
+{% extends "kashi/base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+    <section class="section-contenido">  
+        <section class="titulo-grande">
+            <h1 class="Tex-align-center">Cuando te registras, aceptas los terminos y condicones</h1>                   
+        </section>
+
+        <form action="" method="POST" id="Formulario-registrarse">
+            {% csrf_token %}    
+            <div class="centrado-wrap" id="Grupo-registrarse">
+                {{form.as_table}}
+            </div> 
+        <div class="centrado-wrap">
+            <input type="submit" value="enviar" class="submit">
+        </div>
+        </form>
+    </section>
+{% endblock %}

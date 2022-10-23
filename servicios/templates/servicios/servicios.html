@@ -1,0 +1,25 @@
+{% extends 'kashi/base.html' %}
+{% load static %}
+
+{% block content %}
+    <section class="titulo-grande">
+            <h1>Servicios Que Ofrecemos</h1>
+    </section>
+    <p class="espacio-header"></p>
+    <p class="espacio-header"></p>
+    {% for i in servicios %}
+    <section class="section-contenido" id="Section-servicios">
+        
+        <div class="dos" >
+            <img src="{{i.imagen.url}}" alt="" width="100%" height="100%">
+        </div>
+        <div class='contenido uno' style="background: #ffff;">
+            <div>
+                <h2>{{i.titulo}}</h2>
+                <p>{{i.contenido}}</p>
+            </div>
+        </div>
+    </section>
+    <p class="espacio-header"  style="padding-block: 1.5rem;"></p>
+    {% endfor %}
+{% endblock %}

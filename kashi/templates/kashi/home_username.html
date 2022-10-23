@@ -1,0 +1,63 @@
+{% extends 'kashi/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="titulo-grande" id="Saludo-usuario">
+        <h4>Hola, {{user.username}}, es un placer que estes aqui.</h4>
+</div>
+<section class="section-contenido" style="text-align: center;" id="Section-home-username">
+        
+        <div class="box-welcome box-shadow">
+            <h3 class="Tex-align-center Title-table">Registros recientes</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Accion</th>
+                        <th>Nombre</th>
+                        <th>Cedula</th>
+                        <th class="Tex-align-center">fecha</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in historial %}
+                        <tr>
+                            <td>{{i.get_history_type_display}}</td>
+                            <td>{{i.nombre}}</td>
+                            <td>{{i.cedula}}</td>
+                            <td>{{i.history_date|date:"D d M Y"}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>        
+        <div class="box-panel">
+            <div class="box-uso box-shadow">
+                <img  style="margin-inline: 5%;" class="centrado-wrap" src="{% static 'kashi/images/censo.png' %}" alt="" width="70" height="70">
+                <div class="centrado-wrap" style="margin-inline: 3%; text-align: center;">
+                    <h4 style="margin-bottom: 20px;">Censo de Indigenas</h4>
+                    <ul>
+                        <li><a class="submit submit-2" href="#" >Comunidad</a></li>
+                        <li><a class="submit submit-2" href="{% url 'censar' %}" >Indigenas</a></li>
+                        <li><a class="submit submit-2" href="#" >Niños</a></li>
+                    </ul>                    
+                </div>
+            </div>
+            <div class="box-uso box-shadow">
+                <img class="centrado-wrap" src="{% static 'kashi/images/publicar.png' %}" alt="" width="70" heihgt="70" style="margin-inline: 5%;">
+                <div class="centrado-wrap" style="margin-inline: 3%; text-align: center;">
+                    <h4 style="margin-bottom: 20px;">Gestion de publicaciones</h4>
+                    <ul>
+                        <li>
+                            <a class="submit submit-2" href="{% url 'publicar' %}" >Publicar</a>                            
+                        </li>
+                        <li>
+                            <a class="submit submit-2" href="{% url 'editar_borrar' %}" >Editar/Borrar</a>                            
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+</section>
+
+{% endblock %}
