@@ -407,7 +407,6 @@ text-align: justify;
 #Formulario-iniciar-seccion{
     max-width: 500px;
     background-color: #ffffff;
-    min-height: 70vh;
 }
 
 #Formulario-iniciar-seccion img{
@@ -481,6 +480,8 @@ h6{
     .section-presentacion small{
         display: flex;
         justify-content: center;
+        margin-top: 10px;
+        font-weight: 400;
     }
 
     .section-presentacion ul{
@@ -513,10 +514,9 @@ h6{
         background: #ffffffd1;
     }
     
-    .section-contenido:not(#Section-servicios,#Mision-vision,){
-        min-height: 74vh;
+    #Section-home-username,#Blog-contenido, #Contenido-borrar-editar,#Formulario-iniciar-seccion,.section-contenido:not(#Section-servicios,#Mision-vision){
+        min-height: calc(100vh - 213px);
     }
-
 
         .section-contenido .contenido h2{
             margin-block: 1rem;
@@ -619,7 +619,6 @@ form #id_imagen{
 }
 
 #Contenido-borrar-editar{
-    min-height: 74vh;
     background: #ffffffd1;
 }
 #Contenido-borrar-editar .section-contenido{
@@ -629,6 +628,13 @@ form #id_imagen{
     padding-block: 1.5rem;
     background: #ffffff00;
 }
+
+
+#Contenido-publicacion p{
+    font-family: 'Roboto', sans-serif;
+
+}
+
 @media (max-width: 1100px){
 
     .section-presentacion ul{
