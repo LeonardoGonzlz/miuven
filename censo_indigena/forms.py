@@ -12,7 +12,7 @@ class IndigenasForm(forms.ModelForm):
     grado_instruccion=forms.ChoiceField(choices=CHOICES, widget=forms.RadioSelect)
     class Meta:
         model=indigenas
-        fields=('cedula','nombre','apellido','etnia','casta',
+        fields=('fecha_de_nacimiento','cedula','nombre','apellido','etnia','casta',
         'grado_instruccion', 'estado_de_salud','telefono')
         
 
