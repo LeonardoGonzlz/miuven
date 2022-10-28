@@ -9,7 +9,8 @@
             <div  id="Formulario-censo-indigenas" class="box-shadow">
                 <form enctype="multipart/form-data" action="" method="POST">
                     {% csrf_token %}
-                    <input type="date" name="fecha-nacimiento" required>
+                    <label for="fecha-nacimiento">Fecha de nacimiento</label>
+                    <input type="date" id="fecha-nacimiento" name="fecha-nacimiento" required>
                     {{form.as_table}}
                 <div class="centrado-wrap">
                     <input type="submit" value="registrar" class="submit">
